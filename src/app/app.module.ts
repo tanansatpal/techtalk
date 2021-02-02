@@ -6,6 +6,10 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { Shared3Service } from './shared3.service';
+import { Feature1Component } from './feature-1/feature-1.component';
+import { Feature2Component } from './feature-2/feature-2.component';
+import { SharedService } from './shared.service';
+import { Shared2Service } from './shared2.service';
 
 @NgModule({
   imports: [
@@ -13,13 +17,13 @@ import { Shared3Service } from './shared3.service';
     FormsModule,
     RouterModule.forRoot([
       {path: '', component: HelloComponent},
-      {path: 'feature-1', loadChildren: () => import('./feature-1/feature-1.module').then(m => m.Feature1Module)},
-      {path: 'feature-2', loadChildren: () => import('./feature-2/feature-2.module').then(m => m.Feature2Module)}
+      {path: 'feature-1', component: Feature1Component},
+      {path: 'feature-2', component: Feature2Component}
     ])
   ],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [AppComponent, HelloComponent, Feature1Component, Feature2Component],
   bootstrap: [AppComponent],
-  providers: [Shared3Service]
+  providers: [Shared3Service, SharedService, Shared2Service]
 })
 export class AppModule {
 }
