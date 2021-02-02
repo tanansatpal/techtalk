@@ -7,11 +7,18 @@
   </mat-drawer>
   <mat-drawer-content>
 
-    <button class="hamburger hamburger--slider" [class.is-active]="drawer.opened" type="button" (click)="drawer.toggle();">
+    <button class="hamburger hamburger--slider" [class.is-active]="drawer.opened" type="button"
+            (click)="drawer.toggle();">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
     </button>
+
+    <div>
+      <input type="number" [(ngModel)]="number" placeholder="Enter any number"/>
+      <button (click)="calcFib()">Calc. Fib</button>
+    </div>
+    <div>{{output}}</div>
 
     <router-outlet>
       <span class="loader" *ngIf="loading"></span>
