@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 import { CustomPreloadingStrategy } from './custom-preloading-strategy';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -30,7 +32,8 @@ import { CustomPreloadingStrategy } from './custom-preloading-strategy';
         loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
         data: {applyPreload: true}
       }
-    ])
+    ]),
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
     // ], {preloadingStrategy: PreloadAllModules})
     // ], {preloadingStrategy: QuicklinkStrategy})
     // ], {preloadingStrategy: CustomPreloadingStrategy})
