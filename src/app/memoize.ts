@@ -11,3 +11,21 @@ export function memoize() {
     };
   };
 }
+
+
+// tslint:disable-next-line:typedef
+export function debounce(delay) {
+  let inDebounce;
+  return (target, key, descriptor) => {
+    const func = descriptor.value;
+    // tslint:disable-next-line:typedef
+    descriptor.value = function() {
+      clearTimeout(inDebounce);
+      console.log('fn');
+      inDebounce = setTimeout(() => {
+        func.apply(this, arguments);
+      }, delay);
+    };
+    return descriptor;
+  };
+}

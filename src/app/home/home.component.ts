@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { memoize } from '../memoize';
+import { Component, Injector } from '@angular/core';
+import { debounce, memoize } from '../memoize';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +25,7 @@ export class HomeComponent {
     }
   }
 
+  @debounce(500)
   counterAdd(): void {
     this.count += 1;
   }
