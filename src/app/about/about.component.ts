@@ -8,10 +8,19 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
-  items2 = Array.from({length: 10000}).map((_, i) => `Item #${i}`);
+  items = Array.from({length: 100000}).map((_, i) => ({no: i, name: `Item #${i}`}));
+  items2 = Array.from({length: 10}).map((_, i) => ({no: i, name: `Item #${i}`}));
 
   ngOnInit(): void {
+  }
+
+  updateArray(): void {
+    this.items2 = Array.from({length: 11}).map((_, i) => ({no: i, name: `Item #${i}`}));
+  }
+
+  // tslint:disable-next-line:typedef
+  trackByFn(index, item) {
+    return index; // or item.id
   }
 
 }

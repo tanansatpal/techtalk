@@ -1,8 +1,11 @@
 <h1>About</h1>
 
-<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
-</cdk-virtual-scroll-viewport>
+<!--<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">-->
+<!--  <div *cdkVirtualFor="let item of items" class="example-item">{{item.name}}</div>-->
+<!--</cdk-virtual-scroll-viewport>-->
 
 
-<!--<div *ngFor="let item of items2" class="example-item">{{item}}</div>-->
+<div *ngFor="let item of items2" class="example-item">{{item.name}}</div>
+<!--<div *ngFor="let item of items2;trackBy: trackByFn" class="example-item">{{item.name}}</div>-->
+
+<button (click)="updateArray()">UPDATE</button>
