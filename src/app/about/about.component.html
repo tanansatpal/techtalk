@@ -1,7 +1,8 @@
 <h1>About</h1>
 
-<section>This page was developed to show a minimal example of preloading of routes in Angular.</section>
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
 
-<br>
 
-<section>You can find the source code of the page <a href="">here</a>. More about route preloading you can read in the <a href="https://angular.io/guide/router">official Angular documentation</a>.</section>
+<!--<div *ngFor="let item of items2" class="example-item">{{item}}</div>-->
