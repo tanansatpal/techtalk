@@ -1,7 +1,17 @@
+<div>
+  <div>
+    <input type="number" [(ngModel)]="input" placeholder="Enter any number"/>
+    <button (click)="calcFib()">Calc. Fib</button>
+  </div>
+  <div>{{output}}</div>
+</div>
+
 <a routerLink="/nyan">Nyan</a>
 
-<h1>{{getTitle(framework)}}</h1>
-<button (click)="changeFramework()">Change Framework</button>
-<hr>
-<h4>Number: {{count}}</h4>
-<button (click)="counterAdd()">Add</button>
+<div>
+  <h1>{{getTitle(framework)}}</h1>
+  <button (click)="changeFramework()">Change Framework</button>
+  <hr>
+  <h4>Number: {{count}}</h4>
+  <button (click)="counterAdd()">Add</button>
+</div>

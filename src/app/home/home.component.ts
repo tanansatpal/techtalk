@@ -10,6 +10,9 @@ export class HomeComponent {
 
   framework = 'Angular';
   count = 0;
+  output = 0;
+  input = 0;
+  fnCounter = 0;
 
   @memoize()
   getTitle(framework: string): string {
@@ -28,6 +31,21 @@ export class HomeComponent {
   @debounce(500)
   counterAdd(): void {
     this.count += 1;
+  }
+
+  calcFib(): void {
+    this.fnCounter = 0;
+    this.output = this.fibonacci(this.input);
+    console.log('Fn called ::', this.fnCounter.toLocaleString('en-IN'));
+  }
+
+  // @memoize()
+  fibonacci(num: number): number {
+    ++this.fnCounter;
+    if (num === 1 || num === 2) {
+      return 1;
+    }
+    return this.fibonacci(num - 1) + this.fibonacci(num - 2);
   }
 
 }
