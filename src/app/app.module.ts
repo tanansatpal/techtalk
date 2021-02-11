@@ -9,9 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 import { CustomPreloadingStrategy } from './custom-preloading-strategy';
 import { FormsModule } from '@angular/forms';
+import { AComponent } from './a.component';
+import { BComponent } from './b.component';
+import { CComponent } from './c.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, AComponent, BComponent, CComponent],
   imports: [
     BrowserModule,
     MatSidenavModule,
@@ -30,6 +33,10 @@ import { FormsModule } from '@angular/forms';
         path: 'about',
         loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
         data: {applyPreload: true}
+      },
+      {
+        path: 'dom',
+        component: AComponent
       }
     ]),
     FormsModule,
